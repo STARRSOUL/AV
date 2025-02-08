@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Will You Be My Valentine?</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <div class="hide">
+        <h2>💌 Solve this puzzle to unlock my question 💌</h2>
+        <p class="scrambled">Wlil Oyu eb ym latneniVe?</p>
+        <input type="text" id="answer" placeholder="Type your answer...">
+        <button id="check">click me</button>
+        </div>
+        <div id="final-message" class="hidden">
+            <h2>Will You Be My Valentine? ❤️</h2>
+            <button id="yes">Yes</button>
+            <button id="no">No</button>
+        </div>
+    </div>
+
+    <script>
+        $("#check").click(function() {
+            let answer = $("#answer").val().toLowerCase();
+            if (answer === "will you be my valentine?") {
+                $("#final-message").fadeIn();
+            } else {
+                alert("I know you are playing with me, try again 💕");
+            }
+        });
+        $("#yes").click(function(){
+            $(".hide").css( {"display": "none"});
+            $("#yes").css( {"display": "none"});
+            $("#no").css( {"display": "none"});
+            $("#final-message h2").html("YAYAYAYAYAYAAAA I LOVE YOU! ❤️❤️ Thank you for accepting my proposal 😘❤️");
+        })
+        $("#no").hover(function() {
+            $("#yes").html("yes is  the only correct answer so click here");
+            $(this).html("please be my valentine 😔");
+            $(this).css({"position": "absolute", "top": Math.random() * 300 + "px", "left": Math.random() * 300 + "px"});
+        });
+    </script>
+
+</body>
+</html>
